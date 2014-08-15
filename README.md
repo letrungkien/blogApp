@@ -1,28 +1,24 @@
-== README
+[Blog system requirements]
+User
+- can sign-up
+- can sign-in/sign-out
+- can create a entry (display title, body, date)
+- can make a comment on a entry (of owner and followed user) (display comment, name and date)
+- can follow other users
+- can see the latest entries which are posted by following users (with pagination)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Everyone (including no sign-in user)
+- can read all posts and their comments (with pagination)
+- cannot make a comment
 
-Things you may want to cover:
+The model names you must use
+- User
+- Entry
+- Comment
+- other model (if you need)
 
-* Ruby version
+Your system
+- is deployed on Heroku
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Your code
+- is uploaded on Github

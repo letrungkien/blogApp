@@ -209,9 +209,9 @@ input {
   }
 }
 
-/* microposts */
+/* entries */
 
-.microposts {
+.entries {
   list-style: none;
   margin: 10px 0 0 0;
 
@@ -220,9 +220,15 @@ input {
     border-top: 1px solid #e8e8e8;
   }
 }
-.content {
+.title {
   display: block;
+  font-size: 1.1em;
 }
+
+.body {
+   word-wrap: break-word;
+}
+
 .timestamp {
   color: $grayLight;
 }

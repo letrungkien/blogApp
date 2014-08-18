@@ -1,6 +1,15 @@
 <li>
-  <span class="content"><%= entry.content %></span>
+  <span class="title">
+    <strong><%= link_to entry.title, [entry.user, entry] %></strong>
+  </span>
+  <span class="body">
+    <p>
+      <%= truncate(entry.body, :length => 100,  :separator => ' ') do %>
+      <%= link_to "see more", [entry.user, entry] %>
+      <% end %>
+    </p>
+  </span>
   <span class="timestamp">
-    Posted <%= time_ago_in_words(entry.created_at) %> ago.
+    Posted on <%= entry.created_at.strftime("%B %d at %I:%M %p") %>.
   </span>
 </li>

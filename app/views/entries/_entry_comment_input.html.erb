@@ -2,7 +2,7 @@
 <ul class="comments">
   <%= render @comments %>
 </ul>
-<% if @user.allowed_comment?(@entry.id) && signed_in? %>
+<% if(@comment_user.allowed_comment?(@entry.id) if signed_in?) %>
   <%= form_for(@comment) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">

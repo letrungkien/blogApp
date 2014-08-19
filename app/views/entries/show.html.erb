@@ -3,8 +3,8 @@
   <aside class="span4">
     <section>
       <h1>
-        <%= gravatar_for @poster %>
-        <%= link_to @poster.name, @poster %>
+        <%= gravatar_for @user %>
+        <%= link_to @user.name, @user %>
       </h1>
     </section>
     <section>
@@ -17,9 +17,9 @@
         <%= @entry.title %>
       </h3>
       <ol class="entries">
-        <%= render 'entry_content', entry: @entry %>
+        <%= render 'entries/entry_content', entry: @entry %>
       </ol>
     <% end %>
-    <%= render 'entry_comment_input' %>
+    <%= render 'entries/entry_comment_input' %>
   </div>
 </div>

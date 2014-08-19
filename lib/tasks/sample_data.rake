@@ -20,7 +20,7 @@ def make_users
 end
 
 def make_entries
-  users = User.all
+  users = User.all(limit: 6)
   50.times do
     title = Faker::Lorem.sentence(5)
     body = Faker::Lorem.sentence(5)

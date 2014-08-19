@@ -20,8 +20,8 @@ class EntriesController < ApplicationController
 
   def show
     @entry = Entry.find_by(id: params[:id])
-    @poster = @entry.user
-    @user = current_user
+    @user = @entry.user
+    @comment_user = current_user
     @comments = Comment.on_entry(@entry)
     @comment = @entry.comments.build()
   end

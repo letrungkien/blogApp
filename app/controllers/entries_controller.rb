@@ -14,7 +14,6 @@ class EntriesController < ApplicationController
       flash[:success] = "Entry created!"
       redirect_to root_url
     else
-      #@feed_items = []
       render 'new'
     end 
   end
@@ -22,6 +21,9 @@ class EntriesController < ApplicationController
   def show
     @entry = Entry.find_by(id: params[:id])
     @poster = @entry.user
+    @user = current_user
+    @comments = Comment.on_entry(@entry)
+    @comment = @entry.comments.build()
   end
 
   private

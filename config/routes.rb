@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
 
   resources :relationships, only: [:create, :destroy]
+  resources :comments, only: :create
 
   root  'static_pages#home'
   match '/signup',    to: 'users#new',              via: 'get'

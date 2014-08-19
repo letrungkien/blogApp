@@ -1,7 +1,6 @@
 class Entry < ActiveRecord::Base
-  before_save { self.title = title.strip }
-  before_save { self.body = body.strip }
   belongs_to :user
+  has_many :comments, dependent: :destroy
   default_scope -> { order('created_at DESC') }
   validates :title, presence: true, length: { maximum: 140 }
   validates :body, presence: true, length: { maximum: 500 }

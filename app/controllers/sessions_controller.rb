@@ -16,6 +16,7 @@ class SessionsController < ApplicationController
 
   def destroy
     sign_out
+    @feed_items = []
     redirect_to root_url
   end
 end

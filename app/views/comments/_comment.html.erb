@@ -1,0 +1,10 @@
+<li>
+  <%= gravatar_for comment.user, size: 52 %>
+  <%= link_to comment.user.name, comment.user %>
+  Posted on <%= comment.created_at.strftime("%B %d at %I:%M %p") %>.
+  <span>
+    <p>
+      <%= comment.comment %>	
+    </p>
+  </span>
+</li>

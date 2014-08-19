@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   before_save { self.email = email.downcase }
   before_create :create_remember_token
   has_many :entries, dependent: :destroy
+  has_many :comments, dependent: :destroy
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
   has_many :followed_users, through: :relationships, source: :followed
   has_many :reverse_relationships, foreign_key: "followed_id",
@@ -24,6 +25,10 @@ class User < ActiveRecord::Base
     Digest::SHA1.hexdigest(token.to_s)
   end
 
+  def feed
+    Entry.from_users_followed_by(self)
+  end
+
   def following?(other_user)
     relationships.find_by(followed_id: other_user.id)
   end
@@ -34,6 +39,11 @@ class User < ActiveRecord::Base
 
   def unfollow!(other_user)
     relationships.find_by(followed_id: other_user.id).destroy
+  end
+
+  def allowed_comment?(entry_id)
+    user = Entry.find(entry_id).user
+    following?(user) || self == user
   end
 
   private

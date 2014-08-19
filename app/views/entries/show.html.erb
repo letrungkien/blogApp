@@ -7,6 +7,9 @@
         <%= link_to @poster.name, @poster %>
       </h1>
     </section>
+    <section>
+      <%= render 'shared/stats' %>
+    </section>
   </aside>
   <div class="span8">
     <% unless @entry.nil? %>
@@ -17,5 +20,6 @@
         <%= render 'entry_content', entry: @entry %>
       </ol>
     <% end %>
+    <%= render 'entry_comment_input' %>
   </div>
 </div>

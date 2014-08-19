@@ -1,0 +1,21 @@
+<li id="<%= feed_item.id %>">
+  <%= link_to gravatar_for(feed_item.user), feed_item.user %>
+    <span class="title">
+      <strong><%= link_to feed_item.title, [feed_item.user, feed_item] %></strong>
+    </span>
+    <span class="user">
+      by <%= link_to feed_item.user.name, feed_item.user %>
+      <span class="timestamp">
+        Posted on <%= feed_item.created_at.strftime("%B %d at %I:%M %p") %>.
+      </span>
+    </span>
+    <span class="body">
+      <p>
+        <%= truncate(feed_item.body, :length => 100,  :separator => ' ') do %>
+        <%= link_to "see more", [feed_item.user, feed_item] %>
+        <% end %>
+      </p>
+    </span>
+    
+</li>
+
